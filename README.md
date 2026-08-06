@@ -25,7 +25,7 @@ Whether you are preparing files for laser cutting, CNC machining, fabrication, o
 1. Open a Fusion design containing sketches or sheet-metal components.
 2. Go to **Tools → Scripts and Add-Ins**.
 3. Run **Export Sketches as DXF**.
-4. Select components to export, or leave the selection empty to export the root component.
+4. Select components → Right Click → Click "**Export Sketches as DXF**" at the bottom of the menu
 5. Configure export options.
 6. Click **Export** and choose an output folder.
 
