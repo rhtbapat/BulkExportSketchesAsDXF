@@ -1,44 +1,79 @@
-# Export Sketches DXF for Fusion
+# ExportSketchesDXF — Fusion 360 Add-In
 
-Export Fusion sketches and sheet-metal flat patterns to clean, organized DXF files—quickly and with full control over what gets included.
-
-## Why use it?
-
-Whether you are preparing files for laser cutting, CNC machining, fabrication, or documentation, this add-in makes DXF export easier. Export directly from your active Fusion design, choose exactly which components to include, and keep output neatly organized.
-
-## Features
-
-- Export sketches from the root component and child components
-- Export sheet-metal flat patterns to DXF
-- Select specific components or export the entire design
-- Preview sketch and flat-pattern counts before export
-- Export only visible sketches when needed
-- Choose document units or override with mm, cm, m, in, or ft
-- Include or exclude points, projected geometry, and construction geometry
-- Convert flat-pattern splines to polylines with configurable tolerance
-- Include bend center lines and bend extent lines
-- Automatically create separate output folders for each component
-- Live export status, success counts, and error reporting
-
-## How to use
-
-1. Open a Fusion design containing sketches or sheet-metal components.
-2. Go to **Tools → Scripts and Add-Ins**.
-3. Run **Export Sketches as DXF**.
-4. Select components → Right Click → Click "**Export Sketches as DXF**" at the bottom of the menu
-5. Configure export options.
-6. Click **Export** and choose an output folder.
-
-The add-in exports each sketch or flat pattern as an individual `.dxf` file.
-
-## Ideal for
-
-- Laser cutting workflows
-- CNC and waterjet preparation
-- Sheet-metal fabrication
-- Manufacturing handoff packages
-- Batch DXF exports from multi-component assemblies
+> Batch-export sketches and sheet metal flat patterns from any component directly to DXF — with live progress, full control over what gets included, and a dialog that stays open so you can export again without re-opening it.
 
 ---
 
-Built for Autodesk Fusion users who want faster, cleaner, more flexible DXF exports.
+## ✨ Features
+
+- **Batch export** — right-click any component in the browser or canvas and export all its sketches and flat patterns in one go
+- **Child component traversal** — optionally walk the entire component tree recursively and export sketches from every child
+- **Flat pattern support** — automatically detects sheet metal flat patterns and exports them alongside sketches
+- **Unit override** — choose the DXF output unit independently of the document units (mm, cm, m, inches, feet, or document default)
+- **Sketch filter** — export all sketches or only the visible ones
+- **DXF content control** — individually toggle Points, Projected Geometry, and Construction Geometry per export
+- **Flat pattern options** — toggle Bend Center Lines, Bend Extent Lines, and Spline-to-Polyline conversion (with configurable tolerance)
+- **Subfolder per component** — optionally organise output into subfolders named after each component instance
+- **Multi-component batch** — select multiple components at once from the dialog for a single export run
+- **Live status log** — watch each file export line by line inside the dialog with a running count of successes and failures
+- **Dialog stays open** — export, adjust options, and export again without reopening the dialog
+
+---
+
+## 📁 Output Filename Format
+
+_.dxf _FlatPattern.dxf
+
+**Example**:
+Wheel_1_Profile.dxf Wheel_1_FlatPattern.dxf Hub_1_Base_Sketch.dxf
+
+
+---
+
+## 🖥️ Dialog Overview
+
+| Section | Controls |
+|---|---|
+| **Components** | Multi-select component picker (leave empty to use root) |
+| **Options — General** | Sketch filter, DXF units, Child components, Flat patterns, Subfolders, Points, Projected & Construction geometry |
+| **Options — Flat Pattern** | Spline-to-polyline, Polyline Tolerance, Bend Center Lines, Bend Extent Lines |
+| **Export** | Triggers export without closing the dialog |
+| **Status** | Expandable live log showing per-file progress and final summary |
+
+---
+
+## 🚀 Installation
+
+1. Download or clone this repository
+2. Copy the `ExportSketchesDXF` folder into your Fusion add-ins directory:
+   - **Mac:** `~/Library/Application Support/Autodesk/Autodesk Fusion 360/API/AddIns/`
+   - **Windows:** `%APPDATA%\Autodesk\Autodesk Fusion 360\API\AddIns\`
+3. In Fusion, open **Tools → Scripts and Add-Ins** (or press **Shift+S**)
+4. Switch to the **Add-Ins** tab, find **ExportSketchesDXF**, and click **Run**
+5. Optionally enable **Run on Startup** so it loads automatically every session
+
+---
+
+## 🎯 How to Use
+
+1. Open a Fusion design containing sketches or sheet metal components
+2. **Right-click** any component in the browser or canvas
+3. Select **Export Sketches as DXF** from the context menu
+4. Configure your options in the dialog
+5. Click **Export**, choose an output folder, and watch the live status log
+6. Adjust options and export again — the dialog stays open
+
+---
+
+## ⚠️ Notes
+
+- The `createDXFSketchExportOptions` API is a **preview feature** (introduced January 2025). Avoid distributing this add-in commercially until it moves to released status.
+- Flat pattern export requires the component to be a sheet metal part with a valid flat pattern.
+- If a sketch or flat pattern fails to export, the error reason is shown inline in the Status log — other items continue exporting.
+
+---
+
+## 📄 License
+
+MIT License — free to use, modify, and distribute.
+
