@@ -23,8 +23,9 @@ Features:
 Usage:
 1. Open a Fusion design with sketches or sheet metal flat patterns
 2. Run the add-in from Tools → Scripts and Add-Ins
-3. Configure export options in the dialog
-4. Select output folder and click Export
+3. Right click on any component and find "Export Sketches as DXF" at the bottom of the menu
+4. Configure export options in the dialog
+5. Select output folder and click Export
 
 ================================================================================
 """
