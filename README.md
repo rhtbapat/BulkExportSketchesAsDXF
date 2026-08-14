@@ -25,9 +25,11 @@
 _.dxf _FlatPattern.dxf
 
 **Example**:
+**If subfolder for each component is turned OFF**
 Wheel_1_Profile.dxf Wheel_1_FlatPattern.dxf Hub_1_Base_Sketch.dxf
 
-
+**If subfolder for each component is turned ON**
+Profile.dxf Wheel_1_FlatPattern.dxf Sketch.dxf
 ---
 
 ## 🖥️ Dialog Overview
