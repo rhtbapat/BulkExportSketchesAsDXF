@@ -182,7 +182,10 @@ def _run_export(inputs):
                 out_folder = out_root
 
             if item_type == "sketch":
-                filename = safe_inst + "_" + _make_safe(obj.name) + ".dxf"
+                if use_subfolders:
+                    filename = _make_safe(obj.name) + ".dxf" # Do not include Component name if subfolders are created for each component
+                else:
+                    filename = safe_inst + "_" + _make_safe(obj.name) + ".dxf"
             else:
                 filename = safe_inst + "_FlatPattern.dxf"
 
